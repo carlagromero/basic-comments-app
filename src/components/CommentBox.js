@@ -1,6 +1,9 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { saveComment } from 'actions';
 
 const CommentBox = () => {
+  const dispatch = useDispatch();
   const [comment, setComment] = React.useState('');
 
   const handleChangeTextArea = e => {
@@ -9,6 +12,7 @@ const CommentBox = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    dispatch(saveComment(comment));
 
     setComment('');
   }
