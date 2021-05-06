@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { saveComment } from 'actions';
+import { saveComment, fetchComments } from 'actions';
 
 const CommentBox = () => {
   const dispatch = useDispatch();
@@ -17,14 +17,21 @@ const CommentBox = () => {
     setComment('');
   }
 
+  const handleFetchComments = () => {
+    dispatch(fetchComments());
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
-      <h4>Add a comment</h4>
-      <textarea value={comment} onChange={handleChangeTextArea} />
-      <div>
-        <button>Submmit comment</button>
-      </div>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <h4>Add a comment</h4>
+        <textarea value={comment} onChange={handleChangeTextArea} />
+        <div>
+          <button>Submmit comment</button>
+        </div>
+      </form>
+      <button onClick={handleFetchComments}>Fetch comments</button>
+    </div>
   );
 };
 
