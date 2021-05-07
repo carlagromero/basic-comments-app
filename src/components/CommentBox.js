@@ -30,7 +30,7 @@ const CommentBox = () => {
           <button>Submmit comment</button>
         </div>
       </form>
-      <button onClick={handleFetchComments}>Fetch comments</button>
+      <button className="fetch-comments" onClick={handleFetchComments}>Fetch comments</button>
     </div>
   );
 };
