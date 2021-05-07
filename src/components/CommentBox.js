@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { saveComment, fetchComments } from 'actions';
+import requireAuth from 'components/requireAuth';
 
 const CommentBox = () => {
   const dispatch = useDispatch();
@@ -35,4 +36,4 @@ const CommentBox = () => {
   );
 };
 
-export default CommentBox;
+export default requireAuth(CommentBox);
