@@ -6,13 +6,12 @@ const saveComment = comment => ({
   payload: comment,
 });
 
-const fetchComments = async () => {
-  const response = await axios.get('http://jsonplaceholder.typicode.com/comments');
-  const data = response.data.map(comment => comment.name);
+const fetchComments = () => {
+  const response = axios.get('http://jsonplaceholder.typicode.com/comments');
 
   return {
     type: FETCH_COMMENTS,
-    payload: data,
+    payload: response,
   }
 }
 
